@@ -2,13 +2,14 @@ package main
 
 import (
 	"net/http"
+
 	"github.com/labstack/echo/v4"
-	"github.com/yescorihuela/golang-postgresql/db"
+	"github.com/yescorihuela/golang-postgresql-drive-clone/db"
 )
 
-func main () {
+func main() {
 	e := echo.New() // instance from echo framework
-	s := struct{
+	s := struct {
 		Status string `json:"status"`
 	}{
 		"API is fully functional...",
