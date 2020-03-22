@@ -7,4 +7,4 @@ Technology used:
 - Golang 1.14
 - PostgreSQL 12
 - Docker and Docker Compose
-- GORM as ORM for Golang and Echo as Web Framework for Golang
+- GORM as ORM for Golang and Echo as Web Framework for Golang, they're installed as modules with the newcomer feature of golang called "golang modules"
