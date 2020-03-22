@@ -6,5 +6,5 @@ import (
 
 type File struct {
 	gorm.Model
-	Name			string	`gorm:"unique_index:not null"`
+	Name			string	`gorm:"unique_index;not null"`
 }

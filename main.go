@@ -1,25 +1,20 @@
 package main
 
 import (
-	"net/http"
-
-	"github.com/labstack/echo/v4"
-	"github.com/yescorihuela/golang-postgresql-drive-clone/db"
+	"github.com/yescorihuela/golang-postgresql-drive-clone/database"
+	"github.com/yescorihuela/golang-postgresql-drive-clone/router"
+	_ "github.com/yescorihuela/golang-postgresql-drive-clone/controllers"
+	"github.com/yescorihuela/golang-postgresql-drive-clone/routes"
 )
 
 func main() {
-	e := echo.New() // instance from echo framework
-	s := struct {
-		Status string `json:"status"`
-	}{
-		"API is fully functional...",
-	}
 
-	d := db.New()
-	db.AutoMigrate(d)
-
-	e.GET("/", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, s)
-	})
-	e.Logger.Fatal(e.Start(":8080"))
+	r := router.New()
+	api := r.Group("/api")
+	v1 := api.Group("/v1")
+	d := database.New()
+	database.AutoMigrate(d)
+	h := routes.NewHandler()
+	h.Register(v1)
+	r.Logger.Fatal(r.Start(":8080"))
 }

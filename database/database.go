@@ -2,14 +2,13 @@ package database
 
 import (
 	"fmt"
-	"os"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	"github.com/yescorihuela/golang-postgresql/models"
+	"github.com/yescorihuela/golang-postgresql-drive-clone/models"
 )
 
 func New() *gorm.DB {
-	db, err := gorm.Open("postgres", "host=localhost port=5432 user=postgres dbname=gorm password=123456")
+	db, err := gorm.Open("postgres", "host=localhost port=5432 user=postgres dbname=drive-clone password=123456 sslmode=disable")
 	if err != nil {
 		fmt.Println("storage err: ", err)
 	}
@@ -20,6 +19,6 @@ func New() *gorm.DB {
 
 func AutoMigrate(db *gorm.DB) {
 	db.AutoMigrate(
-		&model.File{},
+		&models.File{},
 	)
 }
