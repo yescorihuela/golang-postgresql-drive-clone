@@ -14,7 +14,6 @@ func main() {
 	v1 := api.Group("/v1")
 	d := database.New()
 	database.AutoMigrate(d)
-	h := routes.NewHandler()
-	h.Register(v1)
+	routes.Register(v1)
 	r.Logger.Fatal(r.Start(":8080"))
 }
