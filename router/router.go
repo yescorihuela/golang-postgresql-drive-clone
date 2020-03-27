@@ -11,7 +11,7 @@ func New() *echo.Echo {
 	e.Logger.SetLevel(log.DEBUG)
 	e.Pre(middleware.RemoveTrailingSlash())
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
-		Format: "${time_rfc3339} - ${method} - ${uri} - ${status} - ${latency_human} - ${level}\n",
+		Format: "${time_rfc3339} - ${level} - ${method} - ${uri} - ${status} - ${latency_human}\n",
 	}))
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
