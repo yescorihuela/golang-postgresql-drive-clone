@@ -8,5 +8,6 @@ import (
 func Register(v1 *echo.Group) {
 	files := v1.Group("/files")
 	files.GET("/index", controllers.ListFiles)
+	files.POST("/new", controllers.SaveNewFile)
 
 }
