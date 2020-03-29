@@ -1,9 +1,9 @@
 package main
 
 import (
+	_ "github.com/yescorihuela/golang-postgresql-drive-clone/controllers"
 	"github.com/yescorihuela/golang-postgresql-drive-clone/database"
 	"github.com/yescorihuela/golang-postgresql-drive-clone/router"
-	_ "github.com/yescorihuela/golang-postgresql-drive-clone/controllers"
 	"github.com/yescorihuela/golang-postgresql-drive-clone/routes"
 )
 

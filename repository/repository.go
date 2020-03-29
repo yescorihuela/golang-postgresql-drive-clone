@@ -5,7 +5,7 @@ import (
 	"github.com/yescorihuela/golang-postgresql-drive-clone/database"
 )
 
-type FileRepository struct{
+type FileRepository struct {
 	db *gorm.DB
 }
 
@@ -14,8 +14,7 @@ func (fp *FileRepository) Close() {
 }
 
 func NewFileRepo() *FileRepository {
-	return &FileRepository {
+	return &FileRepository{
 		db: database.New(),
 	}
 }
-

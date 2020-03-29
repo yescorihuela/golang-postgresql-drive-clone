@@ -16,6 +16,7 @@ func New() *gorm.DB {
 			os.Getenv("POSTGRES_PASSWORD"),
 			os.Getenv("POSTGRES_DB"),
 		))
+
 	if err != nil {
 		fmt.Println("storage err: ", err)
 	}

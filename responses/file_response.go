@@ -1,22 +1,22 @@
 package responses
 
 import (
-	"time"
 	"github.com/yescorihuela/golang-postgresql-drive-clone/models"
+	"time"
 )
 
 type fileResponse struct {
-	File struct{
-		ID uint `json:"id"`
-		Name string `json:"name"`
+	File struct {
+		ID        uint      `json:"id"`
+		Name      string    `json:"name"`
 		CreatedAt time.Time `json:"created_at"`
 		UpdatedAt time.Time `json:"updated_at"`
 	} `json:"file"`
 }
 
-type filesResponse struct{
-	Files []*fileResponse `json:"files"`
-	FilesCount int `json:"files_count"`
+type filesResponse struct {
+	Files      []*fileResponse `json:"files"`
+	FilesCount int             `json:"files_count"`
 }
 
 func NewFileResponse(f *models.File) *fileResponse {
