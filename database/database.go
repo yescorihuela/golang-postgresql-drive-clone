@@ -17,6 +17,10 @@ func New() *gorm.DB {
 	return db
 }
 
+func Close(db *gorm.DB) {
+	db.Close()
+}
+
 func AutoMigrate(db *gorm.DB) {
 	db.AutoMigrate(
 		&models.File{},

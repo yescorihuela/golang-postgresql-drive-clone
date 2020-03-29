@@ -9,8 +9,13 @@ type FileRepository struct{
 	db *gorm.DB
 }
 
+func (fp *FileRepository) Close() {
+	fp.db.Close()
+}
+
 func NewFileRepo() *FileRepository {
 	return &FileRepository {
 		db: database.New(),
 	}
 }
+
