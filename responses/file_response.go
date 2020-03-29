@@ -20,7 +20,6 @@ type filesResponse struct{
 }
 
 func NewFileResponse(f *models.File) *fileResponse {
-
 	r := new(fileResponse)
 	r.File.ID = f.ID
 	r.File.Name = f.Name
@@ -41,7 +40,5 @@ func NewFilesResponse(files []models.File) *filesResponse {
 		fr.File.UpdatedAt = f.UpdatedAt
 		r.Files = append(r.Files, fr)
 	}
-
 	return r
-
 }

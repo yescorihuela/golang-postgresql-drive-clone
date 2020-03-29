@@ -1,0 +1,36 @@
+version: '3.6'
+
+services:
+
+  db_files:
+    container_name: db_files
+    image: "postgres:12"
+    volumes :
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+    env_file:
+      - .env.postgres
+    ports:
+      - "5433:5432"
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+
+  api_backend:
+    build:
+      dockerfile: dockerfiles/Dockerfile.golang-backend
+      context: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/go/src/backend
+    command: go run main.go
+    container_name: api_backend
+    env_file:
+      - .env.api
+    depends_on:
+      - db_files
+
+volumes:
+    pgdata:
