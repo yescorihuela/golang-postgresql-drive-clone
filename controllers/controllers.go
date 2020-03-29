@@ -19,7 +19,7 @@ func ListFiles(c echo.Context) error {
 	if files == nil {
 		return c.JSON(http.StatusNotFound, struct{}{})
 	}
-	return c.JSON(http.StatusOK, responses.NewFileResponse(files))
+	return c.JSON(http.StatusOK, responses.NewFilesResponse(files))
 }
 
 func SaveNewFile(c echo.Context) error {
