@@ -4,7 +4,7 @@ This miniproject is intened as the first functional API, which should become as 
 
 Technology used:
 
-- Golang 1.14
-- PostgreSQL 12
+- Golang 1.17
+- PostgreSQL 13
 - Docker and Docker Compose
 - GORM as ORM for Golang and Echo as Web Framework for Golang, they're installed as modules with the newcomer feature of golang called "golang modules"
